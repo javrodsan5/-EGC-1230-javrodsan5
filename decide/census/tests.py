@@ -4,8 +4,8 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 
 from .models import Census
-#from base import mods
-#from base.tests import BaseTestCase
+from base import mods
+from base.tests import BaseTestCase
 
 
 class CensusTestExecuted(BaseTestCase):
@@ -15,8 +15,8 @@ class CensusTestExecuted(BaseTestCase):
     def tearDown(self):
         super().tearDown()
     
-    def test_executed(self):
-        register_status('TEST_CENSUS_EXECUTED')
+    #def test_executed(self):
+        #register_status('TEST_CENSUS_EXECUTED')
         
 class CensusTestCase(BaseTestCase):
 
@@ -29,8 +29,8 @@ class CensusTestCase(BaseTestCase):
         super().tearDown()
         self.census = None
 
-dsfsd     def test_check_vote_permissions(self):
-      da1		  response = self.client.get('/census/{}/?voter_id={}'.format(1, 2), format='json')
+    def test_check_vote_permissions(self):
+	response = self.client.get('/census/{}/?voter_id={}'.format(1, 2), format='json')
         self.assertEqual(response.status_code, 401)
         self.assertEqual(response.json(), 'Invalid voter')
 
